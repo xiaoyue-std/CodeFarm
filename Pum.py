@@ -2,16 +2,15 @@ import Ground
 import Position
 
 def confirmPum(size,begin):
-	p = begin
-	Position.goTo(p)
+	p = 0
 	while True:
 		if (not can_harvest()):
 			return False,p
-		move(North)
 		p = p + 1
+		move(North)
 		if (p % size == 0):
 			move(East)
-		if (p % (size * size) == 0):
+		if (p == (size * size)):
 			break
 	return True,0
 
@@ -23,10 +22,7 @@ def plantPum(size,needTill):
 	while True:
 		p = x
 		while True:
-			if (first and (not can_harvest())):
-				plant(Entities.Pumpkin)
-			else:
-				plant(Entities.Pumpkin)
+			plant(Entities.Pumpkin)
 			p = p + 1
 			move(North)
 			if (p % size == 0):
@@ -36,7 +32,4 @@ def plantPum(size,needTill):
 				break
 		flag,x = confirmPum(size,x)
 		if flag:
-			Position.backOrinPos()
 			break
-		Position.goTo(x)
-		

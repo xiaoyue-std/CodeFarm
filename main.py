@@ -23,6 +23,7 @@ def plantEn(farm):
 				harvest()
 				if(farm != Entities.Grass):
 					plant(farm)
+					#use_item(Items.Fertilizer)
 				move(North)
 				x = x + 1
 			if(x % 22 == 0):
@@ -33,5 +34,5 @@ def plantEn(farm):
 
 import Ground
 clear()
-Ground.tillAll(get_world_size())
-plantEn(Entities.Sunflower)
+Ground.tillAll(22)
+plantEn(Entities.Carrot)
